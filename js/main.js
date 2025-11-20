@@ -11,13 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
  * Fetches user's location via ipapi.co and displays a custom joke.
  */
 async function initLocationGreeting() {
+    console.log('initLocationGreeting started');
     const speechBubble = document.querySelector('#sverdi-avatar .speech-bubble p');
-    if (!speechBubble) return;
+    if (!speechBubble) {
+        console.error('Speech bubble not found');
+        return;
+    }
 
     try {
+        console.log('Fetching location...');
         // Fetch location data
         const response = await fetch('https://ipapi.co/json/');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
+        console.log('Location data received:', data);
 
         const country = data.country_name;
         const region = data.region; // e.g., "Bavaria" or "California"
@@ -45,6 +54,8 @@ async function initLocationGreeting() {
                 }
             }
         }
+
+        console.log('Selected joke:', joke);
 
         // Update the speech bubble
         speechBubble.textContent = `"${joke}"`;
