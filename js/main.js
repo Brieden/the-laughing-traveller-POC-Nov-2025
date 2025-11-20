@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function initLocationGreeting() {
     console.log('initLocationGreeting started');
-    const speechBubble = document.querySelector('#sverdi-avatar .speech-bubble p');
-    if (!speechBubble) {
-        console.error('Speech bubble not found');
+    const greetingText = document.querySelector('#location-greeting .greeting-text');
+    if (!greetingText) {
+        console.error('Greeting text element not found');
         return;
     }
 
@@ -57,12 +57,12 @@ async function initLocationGreeting() {
 
         console.log('Selected joke:', joke);
 
-        // Update the speech bubble
-        speechBubble.textContent = `"${joke}"`;
+        // Update the greeting text
+        greetingText.textContent = `"${joke}"`;
 
     } catch (error) {
         console.error('Error fetching location:', error);
-        speechBubble.textContent = `"I can't see where you are, but I smell sauerkraut."`;
+        greetingText.textContent = `"I can't see where you are, but I smell sauerkraut."`;
     }
 }
 
