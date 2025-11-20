@@ -1,4 +1,4 @@
-import jokes from './jokes.js';
+import { locationJokes } from './jokes_data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initLocationGreeting();
