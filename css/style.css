@@ -1,0 +1,451 @@
+:root {
+    --primary-color: #FFD700;
+    /* Gold/Yellow */
+    --secondary-color: #FF4500;
+    /* Orange Red */
+    --accent-color: #00CED1;
+    /* Dark Turquoise */
+    --dark-bg: #1a1a1a;
+    --light-text: #f0f0f0;
+    --font-heading: 'Bangers', cursive;
+    --font-body: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    letter-spacing: 2px;
+    transform: rotate(-2deg);
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: rotate(2deg) scale(1.1);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/img/photo_2@22-09-2023_17-34-29.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 80px;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    color: var(--primary-color);
+    text-shadow: 4px 4px 0 var(--secondary-color);
+    margin-bottom: 1rem;
+    animation: bounceIn 1s ease;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: white;
+    box-shadow: 0 4px 0 #b33000;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #b33000;
+}
+
+.btn-secondary {
+    background-color: #555;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Sverdi Avatar */
+.sverdi-avatar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.sverdi-avatar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.avatar-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.speech-bubble {
+    background: white;
+    color: black;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    position: relative;
+    max-width: 250px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 30px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: white transparent;
+}
+
+/* Sections */
+.section {
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 3rem;
+    transform: rotate(-1deg);
+}
+
+/* Bio */
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.bio-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.bio-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0 var(--primary-color);
+    transform: rotate(2deg);
+    transition: transform 0.3s;
+}
+
+.bio-image img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+/* Tour */
+.tour-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tour-item {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.2s;
+}
+
+.tour-item:hover {
+    transform: translateX(10px);
+    background: #333;
+}
+
+.tour-date {
+    text-align: center;
+    background: var(--dark-bg);
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.tour-date .day {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+}
+
+.tour-date .month {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.tour-info h3 {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.tour-info p {
+    color: #aaa;
+}
+
+/* Media / Soundboard */
+.soundboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.sound-btn {
+    background: var(--accent-color);
+    color: var(--dark-bg);
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: 0 4px 0 #008b8b;
+}
+
+.sound-btn:active,
+.sound-btn.playing {
+    transform: translateY(4px);
+    box-shadow: none;
+    background: white;
+}
+
+.gallery {
+    text-align: center;
+}
+
+.gallery img {
+    max-width: 100%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.gallery-placeholder {
+    padding: 40px;
+    border: 2px dashed #555;
+    border-radius: 15px;
+    color: #777;
+    font-style: italic;
+}
+
+/* Contact */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background: #333;
+    color: white;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+/* Footer */
+.footer {
+    background: black;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .bio-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .bio-image {
+        order: -1;
+        /* Image first on mobile */
+        margin-bottom: 20px;
+    }
+
+    .tour-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .nav-links {
+        display: none;
+        /* Simple mobile hide for now */
+    }
+
+    /* Adjust avatar for mobile to avoid blocking content */
+    .sverdi-avatar {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .avatar-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .speech-bubble {
+        font-size: 0.8rem;
+        max-width: 200px;
+    }
+}
